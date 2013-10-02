@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Base Color Scheme -->
+    <SolidColorBrush x:Key="PrimaryForegroundColor" Color="White"/>
+    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="SecondaryBackgroundColor" Color="#252526"/>
+    <SolidColorBrush x:Key="TertiaryBackgroundColor" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="HeaderBackgroundColor" Color="#007ACC"/>
+    <SolidColorBrush x:Key="DisabledForeGroundColor" Color="#888"/>
+
+    <SolidColorBrush x:Key="MouseOverColor" Color="#3E3E40"/>
+    <SolidColorBrush x:Key="IsPressedColor" Color="#007ACC"/>
+
+    <!-- ScrollBar Color Scheme -->
+    <SolidColorBrush x:Key="ScrollBarBrush" Color="#9E9E9E"/>
+    <SolidColorBrush x:Key="ScrollBarBGBrush" Color="#3E3E42"/>
+
+    <!-- Menu Color Scheme -->
+    <SolidColorBrush x:Key="MenuFGBrush" Color="White"/>
+    <SolidColorBrush x:Key="MenuDisabledFGBrush" Color="#888"/>
+    <SolidColorBrush x:Key="MenuBGBrush" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="MenuItemHoverBrush" Color="#3E3E40"/>
+    <SolidColorBrush x:Key="SubMenuBGBrush" Color="#1B1B1C"/>
+    <SolidColorBrush x:Key="SubMenuItemHoverBrush" Color="#333334"/>
+    <SolidColorBrush x:Key="MenuBorderBrush" Color="#333334"/>
+    <SolidColorBrush x:Key="MenuSeparatorBrush" Color="#333334"/>
+
+    <!-- Button Color Scheme -->
+    <SolidColorBrush x:Key="ButtonBrush" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="ButtonHoverBrush" Color="#3E3E40"/>
+    <SolidColorBrush x:Key="ButtonIsPressedBrush" Color="#007ACC"/>
+
+    <!-- ProgressBar Color Scheme -->
+    <SolidColorBrush x:Key="ProgressBarBGBrush" Color="#3E3E40"/>
+    <SolidColorBrush x:Key="ProgressBarIndicatorBrush" Color="#CA5100"/>
+
+    <SolidColorBrush x:Key="GlyphBrush" Color="#444" />
+
+    <!-- ScrollBar Color Scheme -->
+    <SolidColorBrush x:Key="ScrollBarBackgroundColor" Color="#3E3E42"/>
+    <SolidColorBrush x:Key="ArrowColor" Color="#999999"/>
+    <SolidColorBrush x:Key="ArrowMouseOverColor" Color="#007ACC"/>
+    <SolidColorBrush x:Key="ArrowIsPressedColor" Color="#007ACC"/>
+    <SolidColorBrush x:Key="ThumbColor" Color="#686868"/>
+    <SolidColorBrush x:Key="ThumbMouseOverColor" Color="#9E9E9E"/>
+    <SolidColorBrush x:Key="ThumbIsDraggingColor" Color="#EFEBEF"/>
+
+    <!-- ToolTip Color Scheme -->
+    <SolidColorBrush x:Key="ToolTipBackgroundColor" Color="#3E3E40"/>
+    <SolidColorBrush x:Key="ToolTipForegroundColor" Color="White"/>
+
+    <!-- PortElement -->
+    <System:Int32 x:Key="Diameter">20</System:Int32>
+
+    <!-- DeviceElement -->
+    <SolidColorBrush x:Key="DeviceOnBackgroundColor" Color="White"/>
+    <SolidColorBrush x:Key="DeviceOffBackgroundColor" Color="DarkGray"/>
+</ResourceDictionary>

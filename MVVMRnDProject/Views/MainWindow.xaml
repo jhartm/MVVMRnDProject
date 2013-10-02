@@ -1,0 +1,116 @@
+﻿<Window x:Class="MVVMRnDProject.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:control="clr-namespace:MVVMRnDProject.Controls"
+        Title="MainWindow" 
+        Width="1024" Height="768"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_FILE">
+                <MenuItem Header="New..."/>
+                <MenuItem Header="Open" Command="{Binding OpenFile_MenuCommand}"/>
+                <Separator/>
+                <MenuItem Header="Checkable Item 1" IsCheckable="True"/>
+                <MenuItem Header="Checkable Item 2" IsCheckable="True"/>
+                <MenuItem Header="Checkable Item 3" IsCheckable="True"/>
+                <Separator/>
+                <MenuItem Header="Sub-Menu">
+                    <MenuItem Header="Item 1"/>
+                    <MenuItem Header="Item 2"/>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Exit" Command="{Binding Exit_MenuCommand}"/>
+            </MenuItem>
+            <MenuItem Header="_EDIT">
+                <MenuItem Command="ApplicationCommands.Copy"/>
+                <MenuItem Command="ApplicationCommands.Paste"/>
+            </MenuItem>
+            <MenuItem Header="_OPTIONS"/>
+            <MenuItem Header="_HELP">
+                <MenuItem Header="[app name] Help"/>
+                <MenuItem Header="Getting Started with [app name]"/>
+            </MenuItem>
+        </Menu>
+
+        <StatusBar DockPanel.Dock="Bottom" Height="30" VerticalAlignment="Bottom">
+            <StatusBarItem Content="StatusBarItem 1"/>
+            <Separator/>
+            <StatusBarItem>
+                <ProgressBar Width="200" Height="20" IsIndeterminate="True"/>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem Content="StatusBarItem 3"/>
+            <Separator/>
+            <StatusBarItem>
+                <Border x:Name="linkIndicator" Height="20" Width="20" Background="Gray" ToolTip="Default"/>
+            </StatusBarItem>
+        </StatusBar>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" MinWidth="100"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <DockPanel Grid.Column="0">
+                <Border DockPanel.Dock="Top" Background="Gray" Height="30" VerticalAlignment="Top">
+                    <TextBlock Text="Control Panel Header" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+
+                <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                            VerticalScrollBarVisibility="Auto">
+                    <StackPanel Background="LightGray">
+                        <Button Content="Button 1"/>
+                        <Button Content="Button 2"/>
+                        <Button Content="Button 3"/>
+                        <ListBox>
+                            <ListBox.Resources>
+                                <Style TargetType="{x:Type Expander}">
+                                    <Setter Property="IsExpanded" Value="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}"/>
+                                </Style>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                                <!--<SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />-->
+                            </ListBox.Resources>
+
+                            <Expander Header="Expander 1" Content="Expander Content 1" IsExpanded="{Binding IsOpen}"/>
+                            <Expander Header="Expander 2" Content="Expander Content 2"/>
+                            <Expander Header="Expander 3" Content="Expander Content 3"/>
+                        </ListBox>
+                        <ListBox>
+
+                            <TextBlock Text="Text"/>
+                            <TextBlock Text="Text"/>
+                            <TextBlock Text="Text"/>
+                            <TextBlock Text="Text"/>
+                            <TextBlock Text="Text"/>
+                            <TextBlock Text="Text"/>
+                            <TextBlock Text="Text"/>
+                        </ListBox>
+                    </StackPanel>
+                </ScrollViewer>
+
+            </DockPanel>
+
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+
+            <DockPanel Grid.Column="2">
+                <Border DockPanel.Dock="Top" Background="DarkGoldenrod" Height="30" VerticalAlignment="Top">
+                    <TextBlock Text="Main Content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+
+                <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                            VerticalScrollBarVisibility="Auto" Background="Black">
+                    <Frame Width="700" Height="600" Background="LightGray">
+
+                    </Frame>
+
+                </ScrollViewer>
+
+            </DockPanel>
+        </Grid>
+    </DockPanel>
+</Window>

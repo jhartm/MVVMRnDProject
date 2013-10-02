@@ -1,0 +1,48 @@
+﻿<?xml version="1.0"?>
+<HostConfig xmlns="q:hosts-schema">
+  <Device deviceName="Maint. Laptop">
+    <Port portName="maintLaptopPort0"/>
+  </Device>
+  <Device deviceName="Parvus">
+    <Port portName="parvusPort0" address="192.168.1.1"/>
+    <Port portName="parvusPort1" address=""/>
+    <Port portName="parvusPort2" address=""/>
+    <Port portName="parvusPort3" address=""/>
+  </Device>
+  <Device deviceName="VOIP">
+    <Port portName="voipPort0" address="192.168.1.2"/>
+  </Device>
+  <Device deviceName="WBSC">
+    <Port portName="wbscPort0" address="192.168.1.3"/>
+  </Device>
+  <Device deviceName="HAG">
+    <Port portName="hagPort0" address="192.168.1.4"/>
+    <Port portName="hagPort1" address="192.168.1.5"/>
+    <Port portName="hagPort2" address="192.168.1.6"/>
+  </Device>
+  <Device deviceName="AIS">
+    <Port portName="aisPort0" address="192.168.1.7"/>
+  </Device>
+  <Device deviceName="MIL-312">
+    <Port portName="mil312Port1" address="192.168.1.8"/>
+    <Port portName="mil312Port2" address="192.168.1.9"/>
+    <Port portName="mil312Port3" address="192.168.1.10"/>
+    <Port portName="mil312Port4" address="192.168.1.11"/>
+    <Port portName="mil312Port5" address="192.168.1.12"/>
+    <Port portName="mil312Port6" address="192.168.1.13"/>
+    <Port portName="mil312Port7" address="192.168.1.14"/>
+    <Port portName="mil312Port8" address="192.168.1.15"/>
+    <Port portName="mil312Port9" address="192.168.1.16"/>
+    <Port portName="mil312Port10" address=""/>
+    <Port portName="mil312Port11" address=""/>
+    <Port portName="mil312Port12" address="192.168.1.17"/>
+  </Device>
+  <Device deviceName="CDL">
+    <Port portName="cdlDataPort0" address="192.168.1.18"/>
+    <Port portName="cdlMgmtPort1" address="192.168.1.19"/>
+    <Port portName="ballardPort0" address="192.168.1.21"/>
+  </Device>
+  <Device deviceName="AATR">
+    <Port portName="aatrPort0" address="192.168.1.20"/>
+  </Device>
+</HostConfig>
