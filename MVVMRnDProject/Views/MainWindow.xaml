@@ -74,8 +74,8 @@
                             VerticalScrollBarVisibility="Auto">
                     <StackPanel Background="LightGray">
                         <Button Content="Button 1" Command="{Binding LoadPage_Command}"/>
-                        <Button Content="Button 2" Command="{Binding LoadTestPage_Command}"/>
-                        <Button Content="Button 3"/>
+                        <Button Content="Button 2" Command="{Binding LoadTestPage_Command}" CommandParameter="1"/>
+                        <Button Content="Button 3" Command="{Binding LoadTestPage_Command}" CommandParameter="2"/>
                         <ListBox>
                             <ListBox.Resources>
                                 <Style TargetType="{x:Type Expander}">
@@ -85,7 +85,7 @@
                                 <!--<SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />-->
                             </ListBox.Resources>
 
-                            <Expander Header="Expander 1" Content="Expander Content 1" IsExpanded="{Binding IsOpen}"/>
+                            <Expander Header="Expander 1" Content="Expander Content 1"/>
                             <Expander Header="Expander 2" Content="Expander Content 2"/>
                             <Expander Header="Expander 3" Content="Expander Content 3"/>
                         </ListBox>
@@ -117,7 +117,7 @@
 
             <DockPanel Grid.Column="2">
                 <Border DockPanel.Dock="Top" Background="DarkGoldenrod" Height="30" VerticalAlignment="Top">
-                    <TextBlock Text="Main Content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding ContentHeader}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
 
                 <ScrollViewer HorizontalScrollBarVisibility="Auto"

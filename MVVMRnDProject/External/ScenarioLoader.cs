@@ -13,7 +13,7 @@ namespace MVVMRnDProject.External
 
         public ScenarioLoader(string filename)
         {
-
+            //_steps = LoadData("Data/" + filename); 
         }
     }
 }

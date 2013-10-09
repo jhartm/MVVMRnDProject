@@ -7,27 +7,44 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Width="800" Height="650"
       Background="LightBlue"
-	  Title="Test Page"> 
+	  Title="{Binding PageTitle}"> 
 
     <StackPanel>
-        <ScrollViewer Margin="2" Height="200" Width="200">
-            <ListBox ItemsSource="{Binding PortList}"
+        <TextBlock Margin="5" Text="{Binding PageTitle}"/>
+        <StackPanel Orientation="Horizontal">
+            <ScrollViewer Margin="2" Height="200" Width="200">
+                <ListBox ItemsSource="{Binding PortList}"
                      DisplayMemberPath="PortName"
                      SelectedItem="{Binding SelectedPort, Mode=TwoWay}"/>
-        </ScrollViewer>
+            </ScrollViewer>
+
+            <ScrollViewer Margin="2" Height="200" Width="200">
+                <ListBox ItemsSource="{Binding StepList}"
+                     DisplayMemberPath="Target"
+                     SelectedItem="{Binding SelectedStep, Mode=TwoWay}"/>
+            </ScrollViewer>
+        </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="2">
             <TextBlock Text="Name: "/>
             <TextBox x:Name="nameTextBlock" Width="100" Text="{Binding SelectedPort.PortName}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="2">
+            <TextBlock Text="Address: "/>
+            <TextBox x:Name="addressTextBlock" Width="100" Text="{Binding SelectedPort.Address}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="2">
+            <TextBlock Text="Target: "/>
+            <TextBox x:Name="stepNameTextBlock" Width="100" Text="{Binding SelectedStep.Target}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="2">
             <TextBlock Text="Status: "/>
-            <TextBox x:Name="addressTextBlock" Width="100" Text="{Binding SelectedPort.Status}"/>
+            <TextBox x:Name="stepStatusTextBlock" Width="100" Text="{Binding SelectedStep.Status}"/>
         </StackPanel>
         <StackPanel Margin="2">
-            <Button Content="maintLaptopPort0" Command="{Binding ChangeValue_Command}"/>
-            <Button Content="parvusPort3" Command="{Binding StartPingTest_Command}"/>
-            <Button Content="hagPort1"/>
-            <Button Content="cdlDataPort0"/>
+            <Button Content="ChangeValue" Command="{Binding ChangeValue_Command}"/>
+            <Button Content="StartPingTest" Command="{Binding StartPingTest_Command}"/>
+            <Button Content="Button"/>
+            <Button Content="Button"/>
         </StackPanel>
     </StackPanel>
 </Page>

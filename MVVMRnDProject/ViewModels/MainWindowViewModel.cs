@@ -26,6 +26,9 @@ namespace MVVMRnDProject.ViewModels
         readonly ConfigLoader _configLoader;
         private NetworkMapPage _mapPage;
         private TestPage _testPage;
+        private TestPage _testPage2;
+
+        private string _contentHeader;
 
         private string _testText = "Enter Text Here";
         private bool _testBool;
@@ -52,6 +55,18 @@ namespace MVVMRnDProject.ViewModels
         #endregion
 
         #region Properties
+        public string ContentHeader
+        {
+            get
+            {
+                return _contentHeader;
+            }
+            set
+            {
+                _contentHeader = value;
+                OnPropertyChanged("ContentHeader");
+            }
+        }
         public string TestText
         {
             get
@@ -178,6 +193,8 @@ namespace MVVMRnDProject.ViewModels
                 {
                     _currentPage = value;
                     OnPropertyChanged("CurrentPage");
+
+                    SetHeader(_currentPage);
                 }
             }
         }
@@ -203,6 +220,18 @@ namespace MVVMRnDProject.ViewModels
             set
             {
                 _testPage = value;
+            }
+        }
+
+        public TestPage TestPage2
+        {
+            get
+            {
+                return _testPage2;
+            }
+            set
+            {
+                _testPage2 = value;
             }
         }
 
@@ -290,7 +319,9 @@ namespace MVVMRnDProject.ViewModels
             MapPage = new NetworkMapPage(_configLoader);
             MapPage.DataContext = this;
             TestPage = new TestPage();
-            TestPage.DataContext = new NetworkPageViewModel(this.PortList);
+            TestPage.DataContext = new NetworkPageViewModel("Test Page", this.PortList);
+            TestPage2 = new TestPage();
+            TestPage2.DataContext = new NetworkPageViewModel("Test Page 2", this.PortList);
             
         }
 
@@ -342,6 +373,11 @@ namespace MVVMRnDProject.ViewModels
             return _portList;
         }
 
+        private void SetHeader(Page page)
+        {
+            ContentHeader = page.Title;
+        }
+
         public void OpenFile(object obj)
         {
             MessageBox.Show("OpenFile dialog open");
@@ -360,7 +396,14 @@ namespace MVVMRnDProject.ViewModels
 
         public void LoadTestPage(object obj)
         {
-            CurrentPage = TestPage;
+            if (obj.ToString() == "1")
+            {
+                CurrentPage = TestPage;
+            }
+            else
+            {
+                CurrentPage = TestPage2;
+            }
         }
 
         //This stub is for testing only. Delete later

@@ -7,14 +7,25 @@ using System.Threading.Tasks;
 
 namespace MVVMRnDProject.ViewModels
 {
-    public class ScenarioViewModel : ObservableObject
+    public class StepViewModel : ObservableObject
     {
         #region Fields
+        private string _target;
         private string _status;
         #endregion
 
         #region Properties
-        public string PortName { get; set; }
+        public string Target
+        {
+            get
+            {
+                return _target;
+            }
+            set
+            {
+                _target = value;
+            }
+        }
 
         public string Status
         {
@@ -31,9 +42,9 @@ namespace MVVMRnDProject.ViewModels
         #endregion
 
         #region Constructor
-        public ScenarioViewModel()
+        public StepViewModel(string target)
         {
-
+            Target = target;
         }
         #endregion
 

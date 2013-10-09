@@ -14,15 +14,29 @@ namespace MVVMRnDProject.ViewModels
     public class NetworkPageViewModel : ObservableObject
     {
         #region Fields
+        private string _pageTitle;
         private ObservableCollection<PortViewModel> _portList = null;
-        private ObservableCollection<ScenarioViewModel> _stepList = null;
+        private ObservableCollection<StepViewModel> _stepList = null;
         private PortViewModel _selectedPort;
+        private StepViewModel _selectedStep;
 
         private DelegateCommand changeValue_Command;
         private DelegateCommand startPingTest_Command;
         #endregion
 
         #region Properties
+        public string PageTitle
+        {
+            get
+            {
+                return _pageTitle;
+            }
+            set
+            {
+                _pageTitle = value;
+                OnPropertyChanged("PageTitle");
+            }
+        }
         public ObservableCollection<PortViewModel> PortList
         {
             get
@@ -36,7 +50,7 @@ namespace MVVMRnDProject.ViewModels
             }
         }
 
-        public ObservableCollection<ScenarioViewModel> StepList
+        public ObservableCollection<StepViewModel> StepList
         {
             get
             {
@@ -59,6 +73,21 @@ namespace MVVMRnDProject.ViewModels
             {
                 _selectedPort = value;
                 OnPropertyChanged("SelectedPort");
+
+                SelectedStep = GetStep(_selectedPort.PortName);
+            }
+        }
+
+        public StepViewModel SelectedStep
+        {
+            get
+            {
+                return _selectedStep;
+            }
+            set
+            {
+                _selectedStep = value;
+                OnPropertyChanged("SelectedStep");
             }
         }
 
@@ -88,8 +117,10 @@ namespace MVVMRnDProject.ViewModels
         #endregion
 
         #region Constructor
-        public NetworkPageViewModel(ObservableCollection<PortViewModel> portList)
+        public NetworkPageViewModel(string pageTitle, ObservableCollection<PortViewModel> portList)
         {
+            PageTitle = pageTitle;
+
             PortList = portList;
 
             LoadScenario();
@@ -99,7 +130,25 @@ namespace MVVMRnDProject.ViewModels
         #region Methods
         private void LoadScenario()
         {
+            _stepList = new ObservableCollection<StepViewModel>();
 
+            foreach (PortViewModel port in PortList)
+            {
+                _stepList.Add(new StepViewModel(port.PortName));
+            }
+        }
+
+        private StepViewModel GetStep(string portName)
+        {
+            foreach (StepViewModel step in StepList)
+            {
+                if (step.Target == portName)
+                {
+                    return step;
+                }
+            }
+
+            return null;
         }
 
         public void ChangeValue(object obj)
@@ -112,8 +161,9 @@ namespace MVVMRnDProject.ViewModels
         {
             foreach (PortViewModel port in PortList)
             {
-                port.Status = PingTask.Ping(port.PortName);
-                Console.WriteLine(port.PortName + ": " + port.Status);
+                //port.Status = PingTask.Ping(port.PortName);
+
+                GetStep(port.PortName).Status = PingTask.Ping(port.PortName);
             }
         }
         #endregion
