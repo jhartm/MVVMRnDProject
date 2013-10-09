@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MVVMRnDProject.Controls;
+using MVVMRnDProject.External;
+using MVVMRnDProject.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,29 @@ namespace MVVMRnDProject.Views
     /// </summary>
     public partial class NetworkMapPage : Page
     {
-        public NetworkMapPage()
+        public NetworkMapPage(ConfigLoader configLoader)
         {
             InitializeComponent();
+
+            //PortElementInit(configLoader.GetData());
+        }
+
+        private void PortElementInit(List<PortModel> ports)
+        {
+            PortElement portElement;
+            foreach (PortModel port in ports)
+            {
+                portElement = (PortElement)this.FindName(port.PortName);
+
+                if (portElement != null)
+                {
+                    portElement.NameField = port.PortName;
+                    if (!string.IsNullOrWhiteSpace(port.Address))
+                    {
+                        portElement.IpField = port.Address;
+                    }
+                }
+            }
         }
     }
 }

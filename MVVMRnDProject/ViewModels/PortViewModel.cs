@@ -13,11 +13,26 @@ namespace MVVMRnDProject.ViewModel
 {
     public class PortViewModel : ObservableObject
     {
+        private string _portName;
+        private string _status;
+
         public DeviceViewModel Device { get; set; }
 
         public string PortOwner { get; set; }
         public string PortName { get; set; }
-        public IPAddress Address { get; set; }
+        public string Address { get; set; }
+        public string Status
+        {
+            get
+            {
+                return _status;
+            }
+            set
+            {
+                _status = value;
+                OnPropertyChanged("Status");
+            }
+        }
 
         internal PortViewModel(PortModel port)
         {
@@ -31,6 +46,9 @@ namespace MVVMRnDProject.ViewModel
 
         }
 
-
+        public void Print()
+        {
+            Console.WriteLine(PortOwner + " | " + PortName + " | " + Address);
+        }
     }
 }

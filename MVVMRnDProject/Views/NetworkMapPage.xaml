@@ -11,8 +11,37 @@
 	  Title="NetworkMapPage">
 
     <StackPanel>
-        <Canvas Width="750" Height="600" Background="Black">
-
+        <StackPanel Orientation="Horizontal">
+            <control:PortElement x:Name="maintLaptopPort0"/>
+            <control:PortElement x:Name="parvusPort0"/>
+            <control:PortElement x:Name="parvusPort1"/>
+            <control:PortElement x:Name="parvusPort2"/>
+            <control:PortElement x:Name="parvusPort3"/>
+            <control:PortElement x:Name="voipPort0"/>
+            <control:PortElement x:Name="wbscPort0"/>
+            <control:PortElement x:Name="hagPort0"/>
+            <control:PortElement x:Name="hagPort1"/>
+            <control:PortElement x:Name="hagPort2"/>
+            <control:PortElement x:Name="aisPort0"/>
+            <control:PortElement x:Name="mil312Port1"/>
+            <control:PortElement x:Name="mil312Port2"/>
+            <control:PortElement x:Name="mil312Port3"/>
+            <control:PortElement x:Name="mil312Port4"/>
+            <control:PortElement x:Name="mil312Port5"/>
+            <control:PortElement x:Name="mil312Port6"/>
+            <control:PortElement x:Name="mil312Port7"/>
+            <control:PortElement x:Name="mil312Port8"/>
+            <control:PortElement x:Name="mil312Port9"/>
+            <control:PortElement x:Name="mil312Port10"/>
+            <control:PortElement x:Name="mil312Port11"/>
+            <control:PortElement x:Name="mil312Port12"/>
+            <control:PortElement x:Name="cdlDataPort0"/>
+            <control:PortElement x:Name="cdlMgmtPort0"/>
+            <control:PortElement x:Name="aatrPort0"/>
+            <control:PortElement x:Name="ballardPort0"/>
+        </StackPanel>
+        <Canvas Width="750" Height="550" Background="Black" Margin="10">
+            
         </Canvas>
     </StackPanel>
 </Page>

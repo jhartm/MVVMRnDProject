@@ -53,8 +53,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="External\ScenarioLoader.cs" />
+    <Compile Include="Models\Step.cs" />
+    <Compile Include="Tasks\PingTask.cs" />
+    <Compile Include="ViewModels\NetworkPageViewModel.cs" />
+    <Compile Include="ViewModels\ScenarioViewModel.cs" />
     <Compile Include="Views\NetworkMapPage.xaml.cs">
       <DependentUpon>NetworkMapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\PortElement.xaml">
       <SubType>Designer</SubType>
@@ -96,6 +104,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -124,9 +136,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="config.xml">
+    <Resource Include="Data\config2.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

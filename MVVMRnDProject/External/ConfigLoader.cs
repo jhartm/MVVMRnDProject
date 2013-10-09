@@ -1,42 +1,59 @@
 ﻿using MVVMRnDProject.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Resources;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace MVVMRnDProject.External
 {
-    public static class ConfigLoader
+    public class ConfigLoader
     {
-        public static void LoadData()
+        readonly List<PortModel> _ports;
+
+        public ConfigLoader()
         {
-            List<DeviceModel> list = new List<DeviceModel>();
-
-            XmlDocument config = new XmlDocument();
-            config.Load("config.xml");
-            XmlNode root = config.DocumentElement;
-
-            XmlNamespaceManager nsmgr = new XmlNamespaceManager(config.NameTable);
-            nsmgr.AddNamespace("hc", "q:hosts-schema");
-
-            //XmlNode root = config["HostConfig"];
-
-            Console.WriteLine(root.Name);
-
-            XmlNodeList nodeList = root.SelectNodes("hc:Device", nsmgr);
-
-            XmlNode deviceNode = root.SelectSingleNode("hc:Device[@deviceName='Parvus'][1]", nsmgr);
-
-            XmlNodeList portNode = deviceNode.SelectNodes("hc:Port", nsmgr);
-
-            XmlNode portNode2 = root.SelectSingleNode("//hc:Device/hc:Port[@portName='hagPort1'][1]", nsmgr);
-
-            Console.WriteLine(deviceNode.Name);
-
-            //return list;
+            _ports = LoadData("Data/config2.xml");
         }
 
+        static Stream GetResourceStream(string resourceFile)
+        {
+            Uri uri = new Uri(resourceFile, UriKind.RelativeOrAbsolute);
+
+            StreamResourceInfo info = Application.GetResourceStream(uri);
+            if (info == null || info.Stream == null)
+                throw new ApplicationException("Missing resource file: " + resourceFile);
+
+            return info.Stream;
+        }
+
+        static List<PortModel> LoadData(string dataFile)
+        {
+            List<PortModel> list = new List<PortModel>();
+
+            Stream stream = GetResourceStream(dataFile);
+            XmlReader xmlReader = new XmlTextReader(stream);
+
+            foreach (XElement portElement in XDocument.Load(xmlReader).Element("HostConfig").Elements("Port"))
+            {
+                list.Add(PortModel.CreatePort(
+                    (string)portElement.Attribute("portOwner"),
+                    (string)portElement.Attribute("portName"),
+                    (string)portElement.Attribute("address")));
+            }
+
+            return list;
+        }
+
+        public List<PortModel> GetData()
+        {
+            return new List<PortModel>(_ports);
+        }
     }
 }

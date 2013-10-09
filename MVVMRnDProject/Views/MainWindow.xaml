@@ -28,6 +28,9 @@
                 <MenuItem Command="ApplicationCommands.Copy"/>
                 <MenuItem Command="ApplicationCommands.Paste"/>
             </MenuItem>
+            <MenuItem Header="_TEST">
+                <MenuItem Header="Write Data" Command="{Binding WriteData_MenuCommand}"/>
+            </MenuItem>
             <MenuItem Header="_OPTIONS"/>
             <MenuItem Header="_HELP">
                 <MenuItem Header="[app name] Help"/>
@@ -47,6 +50,12 @@
             <StatusBarItem>
                 <Border x:Name="linkIndicator" Height="20" Width="20" Background="Gray" ToolTip="Default"/>
             </StatusBarItem>
+            <Separator/>
+            <TextBox Text="{Binding TestText}" Width="100"/>
+            <TextBlock Text="{Binding TestText}"/>
+            <Separator/>
+            <ToggleButton Content="Change color" IsChecked="{Binding TestBool}"/>
+            <Border Width="20" Height="20" Background="{Binding TestColor}"/>
         </StatusBar>
 
         <Grid>
@@ -64,8 +73,8 @@
                 <ScrollViewer HorizontalScrollBarVisibility="Auto"
                             VerticalScrollBarVisibility="Auto">
                     <StackPanel Background="LightGray">
-                        <Button Content="Button 1"/>
-                        <Button Content="Button 2"/>
+                        <Button Content="Button 1" Command="{Binding LoadPage_Command}"/>
+                        <Button Content="Button 2" Command="{Binding LoadTestPage_Command}"/>
                         <Button Content="Button 3"/>
                         <ListBox>
                             <ListBox.Resources>
@@ -81,7 +90,6 @@
                             <Expander Header="Expander 3" Content="Expander Content 3"/>
                         </ListBox>
                         <ListBox>
-
                             <TextBlock Text="Text"/>
                             <TextBlock Text="Text"/>
                             <TextBlock Text="Text"/>
@@ -90,6 +98,16 @@
                             <TextBlock Text="Text"/>
                             <TextBlock Text="Text"/>
                         </ListBox>
+                        <ScrollViewer Height="200">
+                            <ListBox ItemsSource="{Binding PortList}"
+                                     DisplayMemberPath="PortName"
+                                     SelectedItem="{Binding SelectedPort, Mode=TwoWay}"/>
+                        </ScrollViewer>
+                        <StackPanel DataContext="{Binding SelectedPort}">
+                            <TextBlock Width="100" Text="{Binding PortName}"/>
+                            <TextBlock Width="100" Text="{Binding Address}"/>
+                            <TextBlock Width="100" Text="{Binding Status}"/>
+                        </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
 
@@ -104,8 +122,8 @@
 
                 <ScrollViewer HorizontalScrollBarVisibility="Auto"
                             VerticalScrollBarVisibility="Auto" Background="Black">
-                    <Frame Width="700" Height="600" Background="LightGray">
-
+                    <Frame Width="800" Height="650" Background="LightGray" Content="{Binding CurrentPage}"
+                           NavigationUIVisibility="Hidden">
                     </Frame>
 
                 </ScrollViewer>

@@ -26,7 +26,7 @@ namespace MVVMRnDProject.Views
     {
         public MainWindow()
         {
-            ConfigLoader.LoadData();
+            //ConfigLoader.LoadData();
 
             InitializeComponent();
             this.DataContext = MainWindowViewModel.Instance();

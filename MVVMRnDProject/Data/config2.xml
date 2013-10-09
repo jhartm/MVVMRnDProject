@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<HostConfig>
+  <Port portOwner="Maint. Laptop" portName="maintLaptopPort0" address=""/>
+  <Port portOwner="Parvus" portName="parvusPort0" address="192.168.222.1"/>
+  <Port portOwner="Parvus" portName="parvusPort1" address=""/>
+  <Port portOwner="Parvus" portName="parvusPort2" address=""/>
+  <Port portOwner="Parvus" portName="parvusPort3" address=""/>
+  <Port portOwner="VOIP" portName="voipPort0" address="192.168.222.2"/>
+  <Port portOwner="WBSC" portName="wbscPort0" address="192.168.222.3"/>
+  <Port portOwner="HAG" portName="hagPort0" address="192.168.222.4"/>
+  <Port portOwner="HAG" portName="hagPort1" address="192.168.222.5"/>
+  <Port portOwner="HAG" portName="hagPort2" address="192.168.222.6"/>
+  <Port portOwner="AIS" portName="aisPort0" address="192.168.222.7"/>
+  <Port portOwner="MIL-312" portName="mil312Port1" address="192.168.222.8"/>
+  <Port portOwner="MIL-312" portName="mil312Port2" address="192.168.222.9"/>
+  <Port portOwner="MIL-312" portName="mil312Port3" address="192.168.222.10"/>
+  <Port portOwner="MIL-312" portName="mil312Port4" address="192.168.222.11"/>
+  <Port portOwner="MIL-312" portName="mil312Port5" address="192.168.222.12"/>
+  <Port portOwner="MIL-312" portName="mil312Port6" address="192.168.222.13"/>
+  <Port portOwner="MIL-312" portName="mil312Port7" address="192.168.222.14"/>
+  <Port portOwner="MIL-312" portName="mil312Port8" address="192.168.222.15"/>
+  <Port portOwner="MIL-312" portName="mil312Port9" address="192.168.222.16"/>
+  <Port portOwner="MIL-312" portName="mil312Port10" address=""/>
+  <Port portOwner="MIL-312" portName="mil312Port11" address=""/>
+  <Port portOwner="MIL-312" portName="mil312Port12" address="192.168.222.17"/>
+  <Port portOwner="CDL" portName="cdlDataPort0" address="192.168.222.18"/>
+  <Port portOwner="CDL" portName="cdlMgmtPort1" address="192.168.222.19"/>
+  <Port portOwner="Ballard" portName="ballardPort0" address="192.168.222.21"/>
+  <Port portOwner="AATR" portName="aatrPort0" address="192.168.222.20"/>
+</HostConfig>

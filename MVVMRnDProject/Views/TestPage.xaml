@@ -1,0 +1,33 @@
+﻿<Page x:Class="MVVMRnDProject.Views.TestPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Width="800" Height="650"
+      Background="LightBlue"
+	  Title="Test Page"> 
+
+    <StackPanel>
+        <ScrollViewer Margin="2" Height="200" Width="200">
+            <ListBox ItemsSource="{Binding PortList}"
+                     DisplayMemberPath="PortName"
+                     SelectedItem="{Binding SelectedPort, Mode=TwoWay}"/>
+        </ScrollViewer>
+        <StackPanel Orientation="Horizontal" Margin="2">
+            <TextBlock Text="Name: "/>
+            <TextBox x:Name="nameTextBlock" Width="100" Text="{Binding SelectedPort.PortName}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="2">
+            <TextBlock Text="Status: "/>
+            <TextBox x:Name="addressTextBlock" Width="100" Text="{Binding SelectedPort.Status}"/>
+        </StackPanel>
+        <StackPanel Margin="2">
+            <Button Content="maintLaptopPort0" Command="{Binding ChangeValue_Command}"/>
+            <Button Content="parvusPort3" Command="{Binding StartPingTest_Command}"/>
+            <Button Content="hagPort1"/>
+            <Button Content="cdlDataPort0"/>
+        </StackPanel>
+    </StackPanel>
+</Page>
